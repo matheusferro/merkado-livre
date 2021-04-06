@@ -5,5 +5,6 @@ import io.micronaut.data.jpa.repository.JpaRepository
 import java.util.*
 
 @Repository
-interface UserRepository: JpaRepository<User, UUID> {
+interface UserRepository : JpaRepository<User, UUID> {
+    fun existsByEmail(email: String?): Boolean
 }

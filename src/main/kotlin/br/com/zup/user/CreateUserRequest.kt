@@ -1,5 +1,6 @@
 package br.com.zup.user
 
+import br.com.zup.customValidation.UniqueEmail
 import io.micronaut.core.annotation.Introspected
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
@@ -9,6 +10,7 @@ import javax.validation.constraints.Size
 data class CreateUserRequest(
     @field:NotBlank
     @field:Email
+    @field:UniqueEmail
     val email: String,
 
     @field:Size(min = 6)

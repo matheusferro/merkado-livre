@@ -16,6 +16,7 @@ class User(
     var password: String
 ) {
     init {
+        assert(this.password.length >= 6, { "The password length must be greater than 6." })
         this.password = BCryptPasswordEncoder().encode(this.password)
     }
 

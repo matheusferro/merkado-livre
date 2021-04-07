@@ -17,7 +17,7 @@ class CreateUserController(@Inject val userRepository: UserRepository) {
     fun create(@Body @Valid createUserRequest: CreateUserRequest): HttpResponse<Any> {
 
         val response = userRepository.save(createUserRequest.toModel())
-        val uri = UriBuilder.of("/api/v1/{id}")
+        val uri = UriBuilder.of("/api/v1/user/{id}")
             .expand(mutableMapOf(Pair("id", response.id.toString())))
         return HttpResponse.created(uri)
     }

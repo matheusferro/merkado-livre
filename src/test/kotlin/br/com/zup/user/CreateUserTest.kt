@@ -52,20 +52,14 @@ class CreateUserTest(val userRepository: UserRepository) {
             )
         )
 
-        //Validation exception throws in test HttpClientResponseException
         val exception = assertThrows<HttpClientResponseException> {
             clientPix.toBlocking().exchange(
                 request,
                 Any::class.java
             )
         }
+        assert(exception.status.equals(HttpStatus.BAD_REQUEST))
         assert(exception.message.equals("createUserRequest.email: Email must be unique."))
-
-//        val response = clientPix.toBlocking().exchange(
-//            request,
-//            Any::class.java
-//        )
-//        println("---------- ${response.status} -----------")
     }
 
     @Test
@@ -85,6 +79,7 @@ class CreateUserTest(val userRepository: UserRepository) {
                 Any::class.java
             )
         }
+        assert(exception.status.equals(HttpStatus.BAD_REQUEST))
         assert(exception.message.equals("createUserRequest.password: size must be between 6 and 2147483647"))
     }
 }

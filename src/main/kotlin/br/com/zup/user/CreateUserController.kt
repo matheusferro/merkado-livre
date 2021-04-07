@@ -1,6 +1,7 @@
 package br.com.zup.user
 
 import io.micronaut.http.HttpResponse
+import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.uri.UriBuilder
@@ -13,7 +14,7 @@ import javax.validation.Valid
 class CreateUserController(@Inject val userRepository: UserRepository) {
 
     @Post
-    fun create(@Valid createUserRequest: CreateUserRequest): HttpResponse<Any> {
+    fun create(@Body @Valid createUserRequest: CreateUserRequest): HttpResponse<Any> {
 
         val response = userRepository.save(createUserRequest.toModel())
         val uri = UriBuilder.of("/api/v1/{id}")

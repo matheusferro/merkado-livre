@@ -10,7 +10,7 @@ import javax.validation.constraints.Size
 data class CreateUserRequest(
     @field:NotBlank
     @field:Email
-    @field:NotExistValue(domainClass = User::class, field = "email")
+    @field:NotExistValue(domainClass = User::class, field = "email", message = "Email must be unique.")
     val email: String,
 
     @field:Size(min = 6)

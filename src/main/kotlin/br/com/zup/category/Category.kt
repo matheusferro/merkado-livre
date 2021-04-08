@@ -1,7 +1,6 @@
 package br.com.zup.category
 
 import java.time.LocalDateTime
-import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
 
@@ -9,6 +8,7 @@ import javax.validation.constraints.NotBlank
 class Category(
 
     @field:NotBlank
+    @Column(nullable = false, unique = true)
     val name: String,
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -17,7 +17,8 @@ class Category(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long = 0
+    var id: Long? = null
 
-    val createdAt = LocalDateTime.now()
+    @Column(nullable = false, updatable = false)
+    val createdAt: LocalDateTime = LocalDateTime.now()
 }

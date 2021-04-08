@@ -16,7 +16,7 @@ class CreateUserTest(val userRepository: UserRepository) {
 
     @field:Inject
     @field:Client("/")
-    lateinit var clientPix: RxHttpClient
+    lateinit var clientRest: RxHttpClient
 
     @BeforeEach
     fun setUp() {
@@ -34,7 +34,7 @@ class CreateUserTest(val userRepository: UserRepository) {
             )
         )
 
-        val response = clientPix.toBlocking().exchange(
+        val response = clientRest.toBlocking().exchange(
             request,
             Any::class.java
         )
@@ -53,7 +53,7 @@ class CreateUserTest(val userRepository: UserRepository) {
         )
 
         val exception = assertThrows<HttpClientResponseException> {
-            clientPix.toBlocking().exchange(
+            clientRest.toBlocking().exchange(
                 request,
                 Any::class.java
             )
@@ -74,7 +74,7 @@ class CreateUserTest(val userRepository: UserRepository) {
 
         //Validation exception throws in test HttpClientResponseException
         val exception = assertThrows<HttpClientResponseException> {
-            clientPix.toBlocking().exchange(
+            clientRest.toBlocking().exchange(
                 request,
                 Any::class.java
             )

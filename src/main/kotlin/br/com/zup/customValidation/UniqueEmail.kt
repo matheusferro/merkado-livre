@@ -10,6 +10,9 @@ import javax.validation.Payload
 import kotlin.annotation.AnnotationTarget.FIELD
 import kotlin.reflect.KClass
 
+/**
+ * Annotation not used. Replaced for NotExistValue.
+ */
 @MustBeDocumented
 @Target(FIELD)
 @Retention(AnnotationRetention.RUNTIME)
@@ -21,7 +24,7 @@ annotation class UniqueEmail(
 )
 
 @Singleton
-class UniqueEmailValidator(val userRepository: UserRepository) : ConstraintValidator<UniqueEmail, String> {
+class UniqueEmailValidator(private val userRepository: UserRepository) : ConstraintValidator<UniqueEmail, String> {
     override fun isValid(
         value: String?,
         annotationMetadata: AnnotationValue<UniqueEmail>,

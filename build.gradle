@@ -31,11 +31,18 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-
     testImplementation("io.micronaut:micronaut-http-client")
 
+    //jpa
+    annotationProcessor("io.micronaut.data:micronaut-data-processor:2.4.3")
+    //implementation("io.micronaut:micronaut-inject-java:2.5.5")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    testImplementation("com.h2database:h2")
+    implementation("org.postgresql:postgresql:42.2.20")
+    implementation("org.springframework.security:spring-security-crypto:5.5.0")
+    compile("commons-logging:commons-logging:1.1.1")
 }
 
 

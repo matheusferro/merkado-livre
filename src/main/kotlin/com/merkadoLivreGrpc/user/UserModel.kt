@@ -18,6 +18,8 @@ data class UserModel(
     var password: String
 ) {
     init {
-        this.password = BCryptPasswordEncoder().encode(this.password)
+        if(this.password.length > 6) {
+            this.password = BCryptPasswordEncoder().encode(this.password)
+        }
     }
 }

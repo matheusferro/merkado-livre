@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+#  app:
+#    build:
+#      context: .
+#      dockerfile: ./Dockerfile
+#    image: merkado-livre
+##    enviroment:
+#    ports:
+#      - 50051:50051
+#      - 8080:8080
+#    depends_on:
+#      - dynamodb-local
+#    networks:
+#      - padrao
+
+  dynamodb-local:
+    command: "-jar DynamoDBLocal.jar -sharedDb -optimizeDbBeforeStartup -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+#    networks:
+#      - padrao
+
+#networks:
+#  padrao:
+
+
+#  redis:

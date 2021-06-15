@@ -8,7 +8,5 @@ import javax.validation.Valid
 @Singleton
 class UserService(val userRepository: UserRepository) {
 
-    fun createUser(@Valid userModel: UserModel): UserEntity {
-        return userRepository.save(UserEntity(userModel.email, userModel.password))
-    }
+    fun createUser(@Valid userModel: UserModel): UserEntity = userRepository.save(UserEntity(userModel.email, userModel.password))
 }

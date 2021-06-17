@@ -1,8 +1,8 @@
 package com.merkadoLivreGrpc.user
 
-import com.merkadoLivreGrpc.CreateUserRequest
-import com.merkadoLivreGrpc.CreateUserResponse
-import com.merkadoLivreGrpc.UserServiceGrpc
+import com.merkadoLivreGrpc.user.CreateUserRequest
+import com.merkadoLivreGrpc.user.CreateUserResponse
+import com.merkadoLivreGrpc.user.UserServiceGrpc
 import com.merkadoLivreGrpc.exceptionHandler.ErrorHandler
 import io.grpc.stub.StreamObserver
 import java.security.InvalidParameterException

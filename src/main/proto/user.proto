@@ -1,10 +1,10 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.merkadoLivreGrpc";
-option java_outer_classname = "MerkadoLivreGrpc";
+option java_package = "com.merkadoLivreGrpc.user";
+option java_outer_classname = "MerkadoLivreGrpcUser";
 
-package com.merkadoLivreGrpc;
+package com.merkadoLivreGrpc.user;
 
 service UserService {
   rpc createUser(CreateUserRequest) returns (CreateUserResponse) {}
